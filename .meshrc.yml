@@ -1,0 +1,20 @@
+sources:
+  - name: FakeAPI
+    handler:
+      jsonSchema:
+        operations:
+          - type: Query
+            field: greeting
+            method: GET
+            path: /
+            responseSchema:
+              - type: string
+
+additionalTypeDefs: |
+  extend type Query {
+    throwMe: String
+  }
+
+additionalResolvers:
+  - ./additionalResolvers.ts
+
